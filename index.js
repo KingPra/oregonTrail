@@ -1,8 +1,14 @@
 
-let wagon = makeWagon(5);
+let wagon = {
+capacity: 5,
+passengers: [],
+};
 let traveler = makeTraveler('Henrietta');
 let traveler2 = makeTraveler('Juan');
 let traveler3 = makeTraveler('Bob');
+let traveler4 = makeTraveler('Tim');
+let traveler5 = makeTraveler('Broseph');
+let traveler6 = makeTraveler('bro man from the 5th flo');
 //hunt(traveler);
 
 function makeTraveler (name) {
@@ -17,26 +23,18 @@ function makeTraveler (name) {
     Health: isHealthy,
     }
 };
-console.log(traveler3);
-
-function makeWagon (capacity, passengers) {
-    return {
-        capacity,
-        passengers: [],
-
-    }
-}; 
-console.log(wagon);
+//console.log(traveler3);
 
 
 function hunt (traveler) {
  if (Math.floor(Math.random() * 100) >= 50) {
      traveler.food += 100;
-     return 'Succesful hunt' + traveler.food;
+     return 'Succesful hunt ' + traveler.food;
  } else {
      return 'Did not catch anything';
  }
 }; 
+hunt(traveler);
 console.log(hunt(traveler));
 
  function eat (traveler) {
@@ -51,27 +49,40 @@ console.log(hunt(traveler));
 console.log(eat(traveler));
 
 
-//not working
-
 function join (wagon, traveler) {
-    for (let i = 0; i < wagon.passengers.length; i++) {
-        if (0 === 0) {
-            let passengers = wagon.passengers.push(traveler);
-            console.log(wagon.passengers.push(traveler));
-        } return passengers; 
-    }  
+    for (i = 0; i < 1; i++) {
+        let people = wagon.passengers.push(traveler);
+        console.log(wagon.passengers);
+        return people;
+    }
 };
-console.log(join(wagon, traveler));
-// end of not working
 
-// function quarantine (wagon) {
-//     if (wagon.passengers.traveler.isHealthy === false) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// };
-// console.log(quarantine(wagon));
+join (wagon, traveler);
+join (wagon, traveler2);
+join(wagon, traveler3);
+join (wagon, traveler4);
+join (wagon, traveler5);
+join(wagon, traveler6);
+console.log(wagon.passengers);
+
+
+function quarantine (wagon) {
+    for (i = 0; i < wagon.passengers.length; i++) {
+        console.log('for loop running');
+        console.log(wagon.passengers.length);
+    if (wagon.passengers[i].Health !== true) {
+        console.log(wagon.passengers[i].Health);
+        console.log('should log bad health');
+        return true;
+    } else {
+        console.log('should log no bad health')
+        return false;
+    }
+    }
+    
+};
+quarantine(wagon);
+console.log(quarantine(wagon));
 
 function food (wagon) {
     let total = 0;
@@ -81,21 +92,4 @@ function food (wagon) {
 return total;
 }
 console.log(food(wagon));
-/**
- * Create two different types of objects: a traveler and a wagon.
-
-A traveler has a few properties: an amount of food (number), a name (string), and an isHealthy (boolean).
-
-A wagon has a few properties as well: a passengers list (array) and a capacity (number).
-
-
-hunt(traveler); // maybe get more food
-eat(traveler2);
-eat(traveler2); // juan is hungry
-join(wagon, traveler);
-join(wagon, traveler2);
-
-console.log(quarantine(wagon)); // print true if someone is sick, false otherwise
-console.log(food(wagon)); // print juan's food + henrietta's food
- */
 
