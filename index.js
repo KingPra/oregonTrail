@@ -11,6 +11,24 @@ let traveler5 = makeTraveler('Broseph');
 let traveler6 = makeTraveler('bro man from the 5th flo');
 //hunt(traveler);
 
+
+
+join (wagon, traveler);
+join (wagon, traveler2);
+join(wagon, traveler3);
+join (wagon, traveler4);
+join (wagon, traveler5);
+join(wagon, traveler6);
+
+eat(traveler);
+eat(traveler2);
+eat(traveler2);
+
+quarantine(wagon);
+
+console.log(quarantine(wagon));
+console.log(food(wagon));
+
 function makeTraveler (name) {
     let food = Math.floor(Math.random() * 100);
     let isHealthy = true;
@@ -23,8 +41,6 @@ function makeTraveler (name) {
     Health: isHealthy,
     }
 };
-//console.log(traveler3);
-
 
 function hunt (traveler) {
  if (Math.floor(Math.random() * 100) >= 50) {
@@ -34,8 +50,6 @@ function hunt (traveler) {
      return 'Did not catch anything';
  }
 }; 
-hunt(traveler);
-console.log(hunt(traveler));
 
  function eat (traveler) {
      if (traveler.food < 20) {
@@ -46,43 +60,28 @@ console.log(hunt(traveler));
          return 'lets eat ' + traveler.food;
      }
  };
-console.log(eat(traveler));
 
-
-function join (wagon, traveler) {
-    for (i = 0; i < 1; i++) {
+function join (wagonName, travelerName) {
+        if (wagon.passengers.length <= wagon.capacity) {
         let people = wagon.passengers.push(traveler);
-        console.log(wagon.passengers);
         return people;
+    } else {
+        return 'not enough room';
+    
     }
 };
-
-join (wagon, traveler);
-join (wagon, traveler2);
-join(wagon, traveler3);
-join (wagon, traveler4);
-join (wagon, traveler5);
-join(wagon, traveler6);
-console.log(wagon.passengers);
-
+console.log(join());
 
 function quarantine (wagon) {
-    for (i = 0; i < wagon.passengers.length; i++) {
-        console.log('for loop running');
-        console.log(wagon.passengers.length);
+    for (let i = 0; i < wagon.passengers.length; i++) {
     if (wagon.passengers[i].Health !== true) {
-        console.log(wagon.passengers[i].Health);
-        console.log('should log bad health');
         return true;
     } else {
-        console.log('should log no bad health')
         return false;
     }
     }
     
 };
-quarantine(wagon);
-console.log(quarantine(wagon));
 
 function food (wagon) {
     let total = 0;
@@ -91,5 +90,3 @@ function food (wagon) {
 }
 return total;
 }
-console.log(food(wagon));
-
